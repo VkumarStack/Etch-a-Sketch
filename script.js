@@ -1,3 +1,5 @@
+let keydown = false;
+
 const cont = document.querySelector(".container");
 let size = 4;
 
@@ -60,6 +62,20 @@ function reset() {
 function createPixel() {
     let pixel = document.createElement("div");
     pixel.classList.toggle("pixel");
-    pixel.addEventListener('mouseenter', () => {pixel.classList.add("selected")})
+    pixel.addEventListener('mouseenter', () => {
+        if (!keydown)
+            pixel.classList.add("selected")
+    })
     return pixel;
 }
+
+window.addEventListener('keydown', () => {keydown = true;})
+window.addEventListener('keyup', () => 
+{
+    keydown = false;
+    elms = document.querySelectorAll('.pixel:hover');
+    elms.forEach((elm) =>
+    {
+        elm.classList.add("selected");
+    });
+})
