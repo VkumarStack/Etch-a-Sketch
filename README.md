@@ -1,2 +1,2 @@
 # Etch-a-Sketch
-Adapted from The Odin Project
+Idea adapted from The Odin Project
